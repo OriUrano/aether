@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {
-    fontFamily: {
-        'rubik': ['"Rubik"'],
-        'sans': ['"Rubik"']
+    theme: {
+        fontFamily: {
+            'rubik': ['"Rubik"'],
+            'sans': ['"Rubik"']
+        },
+        extend: {
+        },
     },
-    extend: {},
-  },
-  plugins: [],
+    plugins: [],
 }
 
