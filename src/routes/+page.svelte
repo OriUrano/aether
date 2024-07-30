@@ -8,12 +8,10 @@
     let sideTabDragging = false;
 
     function sideTabDragStart() {
-        console.log("eb")
         sideTabDragging = true;
     }
     function sideTabDragStop() {
         sideTabDragging = false;
-        console.log("ea")
 
     }
 
@@ -28,7 +26,6 @@
         } else {
             sideTab.style.display = "block";
         }
-        console.log(event.clientX);
     }
 
     function sideTabDisplay() {
@@ -45,6 +42,14 @@
 <div class="bg-neutral-900 w-screen h-screen flex" on:mousemove={sideTabDrag} on:mouseup={sideTabDragStop}>
     <div class="h-screen w-12 bg-neutral-800 border-r-2 border-neutral-700">
         <div class="h-12 w-full bg-neutral-700" on:click={sideTabDisplay}>B</div>
+        <div class="flex flex-col gap-2 pt-3">
+            <button class="material-symbols-outlined text-3xl">
+                find_in_page
+            </button>
+            <button class="material-symbols-outlined text-3xl">
+                find_in_page
+            </button>
+        </div>
     </div>
     <div class="h-screen min-w-48 w-64 bg-neutral-800 relative" bind:this={sideTab}>
         <div class="h-12 w-full bg-neutral-700"></div>
