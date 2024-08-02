@@ -23,7 +23,7 @@
     on:click={click}
 >
     {icon}
-    <span class="transition-all absolute left-12 top-1 text-xs z-10 scale-0 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default">
+    <span class="transition-all absolute left-12 top-1 text-xs z-10 scale-0 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default text-white">
         {tooltip}
     </span>
 </button>

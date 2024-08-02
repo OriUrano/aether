@@ -1,6 +1,7 @@
 <script>
     import Ribbon from '$lib/ribbon.svelte';
     import SideTab from '$lib/sideTab.svelte';
+    import TabPanel from '$lib/tabPanel.svelte';
 
     /**
 	 * @type {SideTab}
@@ -22,10 +23,8 @@
 >
     <Ribbon/>
     <SideTab bind:this={sideTab}/>
-
-	<div class="h-screen grow min-w-96">
-		<div class="h-12 w-full bg-neutral-700"></div>
-	</div>
+    <TabPanel/>
+	
 </div>
 
 <div class="hidden hover:bg-neutral-800"></div>

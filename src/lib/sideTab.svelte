@@ -1,11 +1,25 @@
 <script>
     import SideTabButton from './sideTabButton.svelte';
-    import {sideTabClosed} from '$lib/store'
+    import {sideTabClosed, mouse} from '$lib/store'
 
     let isSideTabClosed = false;
 
     sideTabClosed.subscribe((value) => {
         isSideTabClosed = value;
+    });
+
+    /**
+	 * @type {number}
+	 */
+    let mouseX;
+    /**
+	 * @type {number}
+	 */
+    let mouseY;
+
+    mouse.subscribe((value) => {
+        mouseX = value.x;
+        mouseY = value.y;
     });
 
 	/**
@@ -35,7 +49,6 @@
 
     // @ts-ignore
     export function sideTabDrag(event) {
-        console.log(event.clientX);
 		if (!sideTabDragging) {
 			return;
 		}
@@ -56,6 +69,7 @@
         <SideTabButton icon="folder" tooltip="Files"/>
         <SideTabButton icon="search" tooltip="Search"/>
         <SideTabButton icon="bookmark" tooltip="Bookmarks"/>
+        {mouseX} {mouseY}
     </div>
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
