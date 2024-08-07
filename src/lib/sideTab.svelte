@@ -1,6 +1,7 @@
 <script>
     import SideTabButton from './sideTabButton.svelte';
-    import {sideTabClosed, mouse} from '$lib/store'
+    import {sideTabClosed, mouse, mouseUpOrDown} from '$lib/store'
+	import { onMount } from 'svelte';
 
     let isSideTabClosed = false;
 
@@ -17,11 +18,7 @@
 	 */
     let mouseY;
 
-    mouse.subscribe((value) => {
-        mouseX = value.x;
-        mouseY = value.y;
-    });
-
+    
 	/**
 	 * @type {HTMLDivElement}
 	 */
@@ -48,20 +45,37 @@
 	}
 
     // @ts-ignore
-    export function sideTabDrag(event) {
+    export function sideTabDrag() {
 		if (!sideTabDragging) {
 			return;
 		}
-		if (event.clientX <= 47 * 2) {
+		if (mouseX <= 47 * 2) {
             sideTabClosed.set(true);
-		} else if (event.clientX >= 47 * 4) {
+		} else if (mouseX >= 47 * 4) {
 			sideTabClosed.set(false);
             document.body.style.cursor = 'col-resize';
             sideTabDragEle.style.background = '#ec4899';
             sideTabDragEle.style.borderRightColor = '#ec4899';
-            sideTab.style.width = event.clientX - 47 + 'px';
+            sideTab.style.width = mouseX - 47 + 'px';
 		}
 	}
+
+    onMount(() => {
+        mouse.subscribe((value) => {
+            mouseX = value.x;
+            mouseY = value.y;
+            sideTabDrag();
+        });
+
+        mouseUpOrDown.subscribe((value) => {
+            if (value) {
+                sideTabDragStop();
+            }
+        })
+    })
+
+    
+
 </script>
 
 <div class="h-screen min-w-48 bg-neutral-800 relative {isSideTabClosed ? 'hidden' : 'block'}" bind:this={sideTab}>
@@ -69,7 +83,6 @@
         <SideTabButton icon="folder" tooltip="Files"/>
         <SideTabButton icon="search" tooltip="Search"/>
         <SideTabButton icon="bookmark" tooltip="Bookmarks"/>
-        {mouseX} {mouseY}
     </div>
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div

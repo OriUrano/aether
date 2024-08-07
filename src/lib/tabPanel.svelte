@@ -1,20 +1,19 @@
 <script>
     import TabWindow from "./tabWindow.svelte";
+
     /**
-	 * @type {any[]}
+	 * @type {number}
 	 */
-    let s;
-    import {l} from '$lib/store'
-    l.subscribe((value) => {
-        s = value;
-    });
+    let parentWidth;
 </script>
 
-<div class="h-screen grow min-w-96 flex flex-row">
-    <TabWindow color="blue" width="{s[0]}"/>
+<div class="h-screen grow min-w-96 flex flex-row" bind:offsetWidth={parentWidth}>
+    <TabWindow color="blue" {parentWidth}/>
+    <TabWindow color="red" {parentWidth}/>
+    <TabWindow color="green" {parentWidth} last/>
     <!-- <div class="h-screen w-64 bg-white"></div> -->
-    <TabWindow color="red" width="{s[1]}"/>
-    <TabWindow color="green" width="{s[2]}"/>
+    <!-- <TabWindow color="red"/>
+    <TabWindow color="green"/> -->
 
 
     <!-- <div> 
