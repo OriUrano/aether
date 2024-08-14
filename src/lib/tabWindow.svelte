@@ -1,25 +1,20 @@
 <script>
     export let color;
-    export let parentWidth;
+    /**
+	 * @type {number}
+	 */
+    export let size;
+    /**
+	 * @type {any}
+	 */
+     export let id;
     export let last = false;
-    let oldParentWidth = structuredClone(parentWidth);
     import {mouse, mouseUpOrDown} from '$lib/store'
 
-    let width = 0;
-    $: {
-        if (parentWidth !== undefined && oldParentWidth === undefined) {
-            width = parentWidth/3;
-        }
-
-        if (parentWidth !== undefined && oldParentWidth !== undefined) {
-            width = width * parentWidth/oldParentWidth;
-        }
-
-        oldParentWidth = structuredClone(parentWidth);
-    }
-
     import { onMount } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
 
+    const dispatch = createEventDispatcher();
 
     /**
 	 * @type {number}
@@ -29,22 +24,12 @@
 	 * @type {number}
 	 */
     let oldX;
-
-    /**
-	 * @type {number}
-	 */
-    let mouseY;
-
     
 	/**
 	 * @type {HTMLDivElement}
 	 */
 	let sideTabDragEle;
 	let sideTabDragging = false;
-    /**
-	 * @type {HTMLDivElement}
-	 */
-    let windowTab;
 
     function sideTabDragStart() {
 		sideTabDragging = true;
@@ -63,9 +48,7 @@
         } catch {
             
         }
-
 	}
-
 
     // @ts-ignore
     export function sideTabDrag() {
@@ -76,14 +59,17 @@
         document.body.style.cursor = 'col-resize';
         sideTabDragEle.style.background = '#ec4899';
         sideTabDragEle.style.borderRightColor = '#ec4899';
-        width = width + (mouseX - oldX);
+        // size = size + (mouseX - oldX);
+        dispatch('move', {
+			move: (mouseX - oldX),
+            id: id
+		});
         oldX = structuredClone(mouseX);
 	}
 
     onMount(() => {
         mouse.subscribe((value) => {
             mouseX = value.x;
-            mouseY = value.y;
             sideTabDrag();
         });
 
@@ -95,7 +81,7 @@
     })
 </script>
 
-<div style="background-color: {color}; {last ? 'flex-grow: 1;' : 'width: '+width+'px;'}" class="h-full relative min-w-48" bind:this={windowTab}>
+<div style="background-color: {color}; {last ? 'flex-grow: 1;' : 'width: '+size+'px;'}" class="h-full relative min-w-48">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     {#if !last}
         <div
