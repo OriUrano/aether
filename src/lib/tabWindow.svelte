@@ -62,7 +62,7 @@
         // size = size + (mouseX - oldX);
         dispatch('move', {
 			move: (mouseX - oldX),
-            id: id
+            id: +id
 		});
         oldX = structuredClone(mouseX);
 	}
@@ -81,7 +81,7 @@
     })
 </script>
 
-<div style="background-color: {color}; {last ? 'flex-grow: 1;' : 'width: '+size+'px;'}" class="h-full relative min-w-48">
+<div style="background-color: {color}; width: {size}px;}" class="h-full relative min-w-48">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     {#if !last}
         <div
