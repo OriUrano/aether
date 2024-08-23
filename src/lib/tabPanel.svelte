@@ -20,13 +20,13 @@
         oldParentWidth = structuredClone(parentWidth);
     })
 
-    setInterval(() => {
-        let used = 0;
-        for (let i = 0; i<sizes.length; i++) {
-            used += sizes[i];
-        }
-        console.log(parentWidth, used, sizes)
-    }, 1000)
+    // setInterval(() => {
+    //     let used = 0;
+    //     for (let i = 0; i<sizes.length; i++) {
+    //         used += sizes[i];
+    //     }
+    //     console.log(parentWidth, used, sizes)
+    // }, 1000)
 
     // @ts-ignore
     function move(e) {

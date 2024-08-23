@@ -81,13 +81,18 @@
     })
 </script>
 
-<div style="width: {size}px;}" class="h-full relative bg-neutral-900">
+<div style="width: {size}px;}" class="h-full relative bg-neutral-900 min-w-48">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class="h-12 w-full bg-neutral-700 flex pt-2 pl-2">
-        <!-- <div class="bg-neutral-900 w-36 h-10 pr-8">
-
+    <div class="h-12 w-full bg-neutral-700 flex pt-2 pr-6 pl-6">
+        <div class="bg-neutral-900 w-full max-w-60 min-w-36 h-10 pr-8 rounded-t-lg relative">
+            <div class="absolute h-3 w-3 -left-3 bottom-0 bg-neutral-900">
+                <div class="h-3 w-3 rounded-br-lg bg-neutral-700"></div>
+            </div>
+            <div class="absolute h-3 w-3 -right-3 bottom-0 bg-neutral-900">
+                <div class="h-3 w-3 rounded-bl-lg bg-neutral-700"></div>
+            </div>
         </div>
-        <div class="bg-neutral-900 w-36 h-10">
+        <!-- <div class="bg-neutral-900 w-36 h-10">
 
         </div> -->
     </div>
