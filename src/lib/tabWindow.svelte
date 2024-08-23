@@ -81,8 +81,16 @@
     })
 </script>
 
-<div style="background-color: {color}; width: {size}px;}" class="h-full relative min-w-48">
+<div style="width: {size}px;}" class="h-full relative bg-neutral-900">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="h-12 w-full bg-neutral-700 flex pt-2 pl-2">
+        <!-- <div class="bg-neutral-900 w-36 h-10 pr-8">
+
+        </div>
+        <div class="bg-neutral-900 w-36 h-10">
+
+        </div> -->
+    </div>
     {#if !last}
         <div
             bind:this={sideTabDragEle}
