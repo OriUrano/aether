@@ -81,8 +81,10 @@
 <div style="width: {size}px;}" class="h-full relative bg-neutral-900 min-w-48">
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="h-12 w-full bg-neutral-700 flex pt-2 pr-6 pl-6 gap-3">
-		<div class="group relative">
-            <div class="truncate">
+        <div class="group truncate">Notes and stuff blah blah</div>
+        <div class="group truncate">Notes and stuff blah 2</div>
+		<!-- <div class="group relative">
+            <div class="truncate relative">
                 <div class="truncate">Notes and stuff blah blah</div>
                 <span
                     class="transition-all absolute left-[50%] -translate-x-2/4 top-12 text-xs scale-0 z-200 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default text-white"
@@ -91,38 +93,14 @@
             </div>
 		</div>
         <div class="group relative">
-            <div class="truncate">
+            <div class="truncate relative">
                 <div class="truncate">Notes and stuff blah blah</div>
                 <span
                     class="transition-all absolute left-[50%] -translate-x-2/4 top-12 text-xs scale-0 z-200 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default text-white"
                     >Notes and stuff blah blah</span
                 >
             </div>
-		</div>
-		<!-- <div class="bg-neutral-700 w-full max-w-60 h-10 hover:bg-neutral-800 hover:rounded-md hover:h-8 rounded-t-md group relative whitespace-nowrap">
-            <div class="truncate pt-1 pl-4 rounded-md">
-                Notes and stuff blah blah
-            </div>
-            <span class="transition-all absolute left-[50%] -translate-x-2/4 top-12 text-xs scale-0 z-200 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default text-white">Notes and stuff blah blah</span>
-            <div class="absolute h-3 w-3 -left-3 bottom-0 bg-neutral-900">
-                <div class="h-3 w-3 rounded-br-md bg-neutral-700"></div>
-            </div>
-            <div class="absolute h-3 w-3 -right-3 bottom-0 bg-neutral-900">
-                <div class="h-3 w-3 rounded-bl-md bg-neutral-700"></div>
-            </div>
-        </div>
-        <div class="bg-neutral-700 w-full max-w-60 h-10 hover:bg-neutral-800 hover:rounded-md hover:h-8 rounded-t-md group relative whitespace-nowrap">
-            <div class="truncate pt-1 pl-4 rounded-md">
-                Notes and stuff blah blah
-            </div>
-            <span class="transition-all absolute left-[50%] -translate-x-2/4 top-12 text-xs scale-0 z-200 bg-black rounded-md group-hover:scale-100 text-nowrap p-1 px-2 no-icon cursor-default text-white">Notes and stuff blah blah</span>
-            <div class="absolute h-3 w-3 -left-3 bottom-0 bg-neutral-900">
-                <div class="h-3 w-3 rounded-br-md bg-neutral-700"></div>
-            </div>
-            <div class="absolute h-3 w-3 -right-3 bottom-0 bg-neutral-900">
-                <div class="h-3 w-3 rounded-bl-md bg-neutral-700"></div>
-            </div>
-        </div> -->
+		</div> -->
 	</div>
 	{#if !last}
 		<div
